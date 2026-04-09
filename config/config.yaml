@@ -1,0 +1,8 @@
+database:
+  schema_bronze: bronze
+  schema_silver: silver
+  schema_gold: gold
+
+api:
+  vendas_url: "https://fakestoreapi.com/products"
+  clima_url: "https://api.openweathermap.org/data/2.5/weather"
