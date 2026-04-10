@@ -145,6 +145,30 @@ Garante que o projeto rode de forma idêntica em qualquer ambiente, eliminando p
 
 ---
 
+##  Próximas Melhorias
+
+| # | Melhoria | Descrição |
+|---|---|---|
+| 1 | **Qualidade de Dados** | Implementar validações com Great Expectations ou Pandera entre as camadas |
+| 2 | **Dashboard** | Conectar a camada Gold ao Power BI para visualização dos dados |
+| 3 | **Testes Automatizados** | Adicionar testes unitários com Pytest para as funções de transformação |
+| 4 | **Alertas de Falha** | Configurar notificações por e-mail ou Slack quando uma task do Airflow falhar |
+| 5 | **Mais Fontes** | Ingerir dados de APIs financeiras (ex: Yahoo Finance) e redes sociais |
+| 6 | **dbt** | Substituir as transformações Silver/Gold por modelos dbt para maior rastreabilidade |
+| 7 | **CI/CD** | Criar pipeline no GitHub Actions para validar a DAG automaticamente a cada push |
+| 8 | **Cloud** | Migrar para AWS (S3 + RDS + MWAA) ou GCP (BigQuery + Cloud Composer) |
+
+---
+
+> **Nota sobre Extração Incremental:** O pipeline atual realiza carga completa (full load) a cada execução. 
+> A extração incremental não foi implementada pois as APIs utilizadas (Open-Meteo e Open Library) 
+> não oferecem suporte nativo a filtros por data de atualização ou paginação incremental em seus 
+> endpoints gratuitos. Em um ambiente produtivo com fontes que suportem incrementalidade 
+> (ex: bancos de dados com campo `updated_at`, APIs com cursor de paginação), 
+> essa seria a abordagem recomendada para reduzir volume de dados processados e custo operacional.
+
+---
+
 ## Autor
 
 Feito por **Matheus Gomes** — trainee de Engenharia de Dados.
