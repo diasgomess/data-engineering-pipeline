@@ -1,4 +1,4 @@
-from connection import get_engine
+from src.database.connection import get_engine
 from sqlalchemy import text
 
 def create_schemas():

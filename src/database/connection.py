@@ -14,5 +14,7 @@ def get_engine():
     connection_string = f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}"
     
     engine = create_engine(connection_string)
-    
+    print(connection_string)
+    print(engine)
     return engine
+    
