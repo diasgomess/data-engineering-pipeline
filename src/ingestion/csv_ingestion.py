@@ -1,9 +1,13 @@
 import pandas as pd
 from src.database.connection import get_engine
+import os
 
 
 def fetch_data():
-    df = pd.read_csv("csv\\Boston-house-price-data.csv")
+    import os
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(base_dir, "..", "..", "data", "raw", "Boston-house-price-data.csv")
+    df = pd.read_csv(csv_path)
     return df
 
 

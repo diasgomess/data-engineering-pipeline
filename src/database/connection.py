@@ -2,7 +2,7 @@ import os
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=False)  # não sobrescreve variáveis já definidas pelo Docker
 
 def get_engine():
     user = os.getenv("DB_USER")
@@ -17,4 +17,3 @@ def get_engine():
     print(connection_string)
     print(engine)
     return engine
-    
