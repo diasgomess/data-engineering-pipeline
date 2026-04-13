@@ -45,16 +45,16 @@ def transform_data(data):
             "isbn":                   doc.get("isbn", [None])[0] if doc.get("isbn") else None,
         })
 
-        df = pd.DataFrame(rows)
+    df = pd.DataFrame(rows)
 
-        int_cols = [
+    int_cols = [
         "first_publish_year", "number_of_pages_median",
         "edition_count", "ratings_count",
         "want_to_read_count", "currently_reading_count", "already_read_count",
     ]
     for col in int_cols:
         df[col] = pd.to_numeric(df[col], errors="coerce").astype("Int64")
- 
+
     df["ratings_average"] = pd.to_numeric(df["ratings_average"], errors="coerce")
  
     return df
