@@ -80,13 +80,30 @@ cd data-engineering-pipeline
 ```
 
 ### 2. Configure as variáveis de ambiente
-Crie um arquivo `.env` na raiz com:
+Copie o arquivo de exemplo e ajuste os valores sensíveis:
+```bash
+cp .env.example .env
+```
+
+No Windows PowerShell:
+```powershell
+Copy-Item .env.example .env
+```
+
+Exemplo de `.env`:
 ```env
-DB_HOST=host.docker.internal
+DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=engenharia_dados
 DB_USER=postgres
-DB_PASSWORD=sua_senha
+DB_PASSWORD=sua_senha_forte
+
+AIRFLOW_POSTGRES_USER=airflow
+AIRFLOW_POSTGRES_PASSWORD=sua_senha_forte_airflow
+AIRFLOW_POSTGRES_DB=airflow
+
+AIRFLOW_ADMIN_USER=admin
+AIRFLOW_ADMIN_PASSWORD=sua_senha_forte_admin
 ```
 
 ### 3. Suba a infraestrutura
